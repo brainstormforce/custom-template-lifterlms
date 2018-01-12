@@ -65,6 +65,11 @@ class LCL {
 			return false;
 		}
 
+		$template = get_post_meta( get_the_id(), 'course_template', true );
+		if ( '' == $template ) {
+			return false;
+		}
+
 		return true;
 	}
 
