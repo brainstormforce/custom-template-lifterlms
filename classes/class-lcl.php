@@ -98,7 +98,12 @@ class LCL {
 
 	public function override_template_include() {
 
-		// Don't override the template if the post type is not `course`
+		// Don't run any code in admin area.
+		if ( is_admin() ) {
+			return false;
+		}
+
+		// Don't override the template if the post type is not `course`.
 		if ( 'course' !== get_post_type() ) {
 			return false;
 		}
