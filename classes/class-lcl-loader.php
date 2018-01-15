@@ -33,10 +33,10 @@ class LCL_Loader {
 
 		// Load the metabbox class only in admin.
 		if ( is_admin() ) {
-			require_once HFE_DIR . 'admin/class-lcl-metabox.php';
+			require_once LCLP_DIR . 'admin/class-lcl-metabox.php';
 		}
 
-		require_once HFE_DIR . 'classes/class-lcl.php';
+		require_once LCLP_DIR . 'classes/class-lcl.php';
 	}
 }
 

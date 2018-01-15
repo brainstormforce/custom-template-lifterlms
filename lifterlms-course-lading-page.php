@@ -12,9 +12,9 @@
  * @package         Lifterlms_Course_Lading_Page
  */
 
-define( 'HFE_VER', '1.0.8' );
-define( 'HFE_DIR', plugin_dir_path( __FILE__ ) );
-define( 'HFE_URL', plugins_url( '/', __FILE__ ) );
-define( 'HFE_PATH', plugin_basename( __FILE__ ) );
+define( 'LCLP_VER', '1.0.8' );
+define( 'LCLP_DIR', plugin_dir_path( __FILE__ ) );
+define( 'LCLP_URL', plugins_url( '/', __FILE__ ) );
+define( 'LCLP_PATH', plugin_basename( __FILE__ ) );
 
-require_once HFE_DIR . 'classes/class-lcl-loader.php';
+require_once LCLP_DIR . 'classes/class-lcl-loader.php';

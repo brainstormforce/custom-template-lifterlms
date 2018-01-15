@@ -111,6 +111,7 @@ class LCL {
 	}
 
 	public function render( $content ) {
+
 		$template = get_post_meta( get_the_id(), 'course_template', true );
 
 		if ( self::is_elementor_activated( $template ) ) {
