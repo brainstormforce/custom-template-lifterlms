@@ -32,10 +32,7 @@ class LCL_Loader {
 	private function includes() {
 
 		// Load the metabbox class only in admin.
-		if ( is_admin() ) {
-			require_once LCLP_DIR . 'admin/class-lcl-metabox.php';
-		}
-
+		require_once LCLP_DIR . 'admin/class-lcl-admin.php';
 		require_once LCLP_DIR . 'classes/class-lcl.php';
 	}
 }
