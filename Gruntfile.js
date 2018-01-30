@@ -27,6 +27,63 @@ module.exports = function( grunt ) {
 			},
 		},
 
+		copy: {
+            main: {
+                options: {
+                    mode: true
+                },
+                src: [
+                    '**',
+                    '!node_modules/**',
+                    '!build/**',
+                    '!css/sourcemap/**',
+                    '!.git/**',
+                    '!bin/**',
+                    '!.gitlab-ci.yml',
+                    '!bin/**',
+                    '!tests/**',
+                    '!phpunit.xml.dist',
+                    '!*.sh',
+                    '!*.map',
+                    '!Gruntfile.js',
+                    '!package.json',
+                    '!.gitignore',
+                    '!phpunit.xml',
+                    '!README.md',
+                    '!sass/**',
+                    '!codesniffer.ruleset.xml',
+                    '!vendor/**',
+                    '!composer.json',
+                    '!composer.lock',
+                    '!package-lock.json',
+                    '!phpcs.xml.dist',
+                ],
+                dest: 'astra-addon/'
+            }
+        },
+
+        compress: {
+            main: {
+                options: {
+                    archive: 'custom-template-lifterlms.zip',
+                    mode: 'zip'
+                },
+                files: [
+                    {
+                        src: [
+                            './custom-template-lifterlms/**'
+                        ]
+
+                    }
+                ]
+            }
+        },
+            
+		clean: {
+            main: ["custom-template-lifterlms"],
+            zip: ["custom-template-lifterlms.zip"]
+        },
+
 		makepot: {
 			target: {
 				options: {
@@ -48,6 +105,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
 	grunt.registerTask( 'default', [ 'i18n','readme' ] );
+    grunt.registerTask('release', ['clean:zip', 'copy', 'compress', 'clean:main']);
 	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
 
