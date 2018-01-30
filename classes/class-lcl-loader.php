@@ -1,41 +1,63 @@
 <?php
 /**
- * 
+ * LLMS Course Landing Page - Loader.
+ *
+ * @package LCL
+ * @since 1.0.0
  */
 
 defined( 'ABSPATH' ) or exit;
 
-/**
- * Loader Class for LCL
- */
-class LCL_Loader {
+if ( ! class_exists( 'LCL_Loader' ) ) {
 
-	private static $_instance = null;
+	/**
+	 * Loader Class for LCL
+	 */
+	class LCL_Loader {
 
-	public static function instance() {
+		/**
+		 * Member Variable
+		 *
+		 * @var instance
+		 */
+		private static $instance = null;
 
-		if ( ! defined( 'LLMS_VERSION' ) ) {
-			return false;
+		/**
+		 * Initiator
+		 */
+		public static function get_instance() {
+
+			if ( ! defined( 'LLMS_VERSION' ) ) {
+				return false;
+			}
+
+			if ( ! isset( self::$instance ) ) {
+				self::$instance = new self;
+			}
+
+			return self::$instance;
 		}
 
-		if ( ! isset( self::$_instance ) ) {
-			self::$_instance = new self;
+		/**
+		 * Constructor
+		 */
+		private function __construct() {
+			$this->includes();
 		}
 
-		return self::$_instance;
-	}
+		/**
+		 * Include required files.
+		 *
+		 * @return void
+		 */
+		private function includes() {
 
-	private function __construct() {
-		$this->includes();
-	}
-
-	private function includes() {
-
-		// Load the metabbox class only in admin.
-		require_once LCLP_DIR . 'admin/class-lcl-admin.php';
-		require_once LCLP_DIR . 'classes/class-lcl.php';
+			// Load the metabbox class only in admin.
+			require_once LCLP_DIR . 'admin/class-lcl-admin.php';
+			require_once LCLP_DIR . 'classes/class-lcl.php';
+		}
 	}
 }
 
-add_action( 'plugins_loaded', 'LCL_Loader::instance' );
+add_action( 'plugins_loaded', 'LCL_Loader::get_instance' );
 

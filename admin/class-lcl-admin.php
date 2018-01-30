@@ -1,15 +1,15 @@
 <?php
 /**
- * Advanced Hooks - Loader.
+ * LLMS Course Landing Page - Admin.
  *
- * @package Astra Addon
+ * @package LCL
  * @since 1.0.0
  */
 
 if ( ! class_exists( 'LCL_Admin' ) ) {
 
 	/**
-	 * Astra Advanced Hooks Initialization
+	 * LLMS Course Landing Page Initialization
 	 *
 	 * @since 1.0.0
 	 */
@@ -24,7 +24,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		private static $instance;
 
 		/**
-		 *  Initiator
+		 * Initiator
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
@@ -34,11 +34,11 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		}
 
 		/**
-		 *  Constructor
+		 * Constructor
 		 */
 		public function __construct() {
 
-			add_action( 'init', array( $this, 'advanced_hooks_post_type' ) );
+			add_action( 'init', array( $this, 'llms_course_mading_page_post_type' ) );
 			add_filter( 'post_updated_messages', array( $this, 'custom_post_type_post_update_messages' ) );
 
 			// Actions.
@@ -48,11 +48,12 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		}
 
 		/**
-		 * Register custom bbPress tab with the LLMS Course metabox
-		 * @param    array     $fields  existing fields
+		 * Register custom landing page tab with the LLMS Course metabox
+		 *
+		 * @param    array $fields  existing fields.
 		 * @return   array
-		 * @since    3.12.0
-		 * @version  3.12.0
+		 * @since    1.0.0
+		 * @version  1.0.0
 		 */
 		public function course_settings_fields( $fields ) {
 
@@ -71,7 +72,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 			if ( isset( $posts->posts ) ) {
 				foreach ( $posts->posts as $key => $id ) {
 					$all_posts[] = array(
-						'key' => $id,
+						'key'   => $id,
 						'title' => get_the_title( $id ),
 					);
 				}
@@ -80,7 +81,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 			$selected = get_post_meta( get_the_ID(), 'course_template', true );
 
 			$fields[] = array(
-				'title' => __( 'Landing Page', 'lifterlms-landing' ),
+				'title'  => __( 'Landing Page', 'lifterlms-landing' ),
 				'fields' => array(
 					array(
 						'class'    => '',
@@ -98,9 +99,11 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		}
 
 		/**
-		 * Create Astra Advanced Hooks custom post type
+		 * Create LLMS Course Landing Page custom post type
+		 *
+		 * @return void
 		 */
-		function advanced_hooks_post_type() {
+		function llms_course_mading_page_post_type() {
 
 			$labels = array(
 				'name'          => esc_html_x( 'LLMS Course Landing Pages', 'llms course landing page general name', 'lifterlms-landing' ),
@@ -133,6 +136,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		 * Add Update messages for any custom post type
 		 *
 		 * @param array $messages Array of default messages.
+		 * @return array
 		 */
 		function custom_post_type_post_update_messages( $messages ) {
 
@@ -174,6 +178,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		 * Add page builder support to Advanced hook.
 		 *
 		 * @param array $value Array of post types.
+		 * @return array
 		 */
 		function bb_builder_compatibility( $value ) {
 
@@ -189,7 +194,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		 */
 		public function save_course_landing_page() {
 
-			$landing_page_id = (isset( $_POST['course_template'] )) ? $_POST['course_template'] : '';
+			$landing_page_id = ( isset( $_POST['course_template'] ) ) ? $_POST['course_template'] : '';
 
 			if ( isset( $_POST['post_ID'] ) ) {
 				update_post_meta( $_POST['post_ID'], 'course_template', $landing_page_id );
