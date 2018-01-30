@@ -108,7 +108,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 
 		/**
 		 * Admin Menu.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function display_admin_menu() {
