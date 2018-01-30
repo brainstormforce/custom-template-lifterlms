@@ -1,8 +1,8 @@
 <?php
 /**
- * LLMS Course Landing Page - Loader.
+ * Custom Template for LifterLMS Courses - Loader.
  *
- * @package LCL
+ * @package Custom Template for LifterLMS Courses
  * @since 1.0.0
  */
 

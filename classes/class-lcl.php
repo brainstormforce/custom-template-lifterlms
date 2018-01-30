@@ -1,8 +1,8 @@
 <?php
 /**
- * LLMS Course Landing Page.
+ * Custom Template for LifterLMS Courses.
  *
- * @package LCL
+ * @package Custom Template for LifterLMS Courses
  * @since 1.0.0
  */
 
@@ -37,6 +37,7 @@ if ( ! class_exists( 'LCL' ) ) {
 		 * Constructor
 		 */
 		private function __construct() {
+
 			add_action( 'wp', array( $this, 'override_template_include' ), 999 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 999 );
 			add_filter( 'astra_page_layout', array( $this, 'astra_page_layout' ), 999 );

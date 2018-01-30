@@ -1,7 +1,7 @@
 
 {
-  "name": "lifterlms-course-lading-page",
-  "version": "0.1.0",
+  "name": "custom-template-lifterlms",
+  "version": "1.0.0",
   "main": "Gruntfile.js",
   "author": "YOUR NAME HERE",
   "devDependencies": {

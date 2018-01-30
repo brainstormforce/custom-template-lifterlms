@@ -9,7 +9,7 @@ module.exports = function( grunt ) {
 
 		addtextdomain: {
 			options: {
-				textdomain: 'lifterlms-course-lading-page',
+				textdomain: 'custom-template-lifterlms',
 			},
 			update_all_domains: {
 				options: {
@@ -32,8 +32,8 @@ module.exports = function( grunt ) {
 				options: {
 					domainPath: '/languages',
 					exclude: [ '\.git/*', 'bin/*', 'node_modules/*', 'tests/*' ],
-					mainFile: 'lifterlms-course-lading-page.php',
-					potFilename: 'lifterlms-course-lading-page.pot',
+					mainFile: 'custom-template-lifterlms.php',
+					potFilename: 'custom-template-lifterlms.pot',
 					potHeaders: {
 						poedit: true,
 						'x-poedit-keywordslist': true
