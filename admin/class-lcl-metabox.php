@@ -27,7 +27,7 @@ class LCL_Metabbox {
 
 	public function lcl_register_metabox() {
 		add_meta_box(
-			'ehf-meta-box', __( 'Elementor Header Footer options', 'header-footer-elementor' ), array(
+			'ehf-meta-box', __( 'Course Landing Page', 'lifterlms-landing' ), array(
 				$this,
 				'efh_metabox_render',
 			), 'course', 'normal', 'high'
