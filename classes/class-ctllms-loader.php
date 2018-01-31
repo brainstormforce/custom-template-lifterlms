@@ -6,7 +6,9 @@
  * @since 1.0.0
  */
 
-defined( 'ABSPATH' ) or exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit();
+}
 
 if ( ! class_exists( 'CTLLMS_Loader' ) ) {
 
@@ -32,7 +34,7 @@ if ( ! class_exists( 'CTLLMS_Loader' ) ) {
 			}
 
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 
 			return self::$instance;

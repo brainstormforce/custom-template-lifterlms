@@ -6,6 +6,10 @@
  * @since 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit();
+}
+
 if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 
 	/**
@@ -28,7 +32,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -132,7 +136,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 
 			global $parent_file, $current_screen, $submenu_file, $pagenow;
 
-			if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && 'bsf-custom-template' == $current_screen->post_type ) :
+			if ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && 'bsf-custom-template' === $current_screen->post_type ) :
 				$submenu_file = 'edit.php?post_type=bsf-custom-template';
 				$parent_file  = 'edit.php?post_type=course';
 			endif;
@@ -145,7 +149,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		 *
 		 * @return void
 		 */
-		function llms_course_landing_page_post_type() {
+		public function llms_course_landing_page_post_type() {
 
 			$labels = array(
 				'name'          => esc_html_x( 'Course Custom Templates', 'llms course landing page general name', 'custom-template-lifterlms' ),
@@ -180,11 +184,11 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		 * @param array $messages Array of default messages.
 		 * @return array
 		 */
-		function custom_post_type_post_update_messages( $messages ) {
+		public function custom_post_type_post_update_messages( $messages ) {
 
 			$custom_post_type = get_post_type( get_the_ID() );
 
-			if ( 'bsf-custom-template' == $custom_post_type ) {
+			if ( 'bsf-custom-template' === $custom_post_type ) {
 
 				$obj                           = get_post_type_object( $custom_post_type );
 				$singular_name                 = $obj->labels->singular_name;
@@ -222,7 +226,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		 * @param array $value Array of post types.
 		 * @return array
 		 */
-		function bb_builder_compatibility( $value ) {
+		public function bb_builder_compatibility( $value ) {
 
 			$value[] = 'bsf-custom-template';
 
@@ -236,10 +240,10 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		 */
 		public function save_course_landing_page() {
 
-			$landing_page_id = ( isset( $_POST['course_template'] ) ) ? absint( $_POST['course_template'] ): '';
+			$landing_page_id = ( isset( $_POST['course_template'] ) ) ? absint( $_POST['course_template'] ) : '';
 
 			if ( isset( $_POST['post_ID'] ) ) {
-				update_post_meta( $_POST['post_ID'], 'course_template',  $landing_page_id );
+				update_post_meta( $_POST['post_ID'], 'course_template', $landing_page_id );
 			}
 		}
 	}
