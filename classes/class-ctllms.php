@@ -8,12 +8,12 @@
 
 defined( 'ABSPATH' ) or exit;
 
-if ( ! class_exists( 'LCL' ) ) {
+if ( ! class_exists( 'CTLLMS' ) ) {
 
 	/**
-	 * Loader Class for LCL
+	 * CTLLMS
 	 */
-	class LCL {
+	class CTLLMS {
 
 		/**
 		 * Member Variable
@@ -318,5 +318,5 @@ if ( ! class_exists( 'LCL' ) ) {
 	}
 }
 
-LCL::get_instance();
+CTLLMS::get_instance();
 

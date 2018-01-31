@@ -6,14 +6,14 @@
  * @since 1.0.0
  */
 
-if ( ! class_exists( 'LCL_Admin' ) ) {
+if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 
 	/**
 	 * Course Custom Template Initialization
 	 *
 	 * @since 1.0.0
 	 */
-	class LCL_Admin {
+	class CTLLMS_Admin {
 
 
 		/**
@@ -42,6 +42,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 			add_filter( 'post_updated_messages', array( $this, 'custom_post_type_post_update_messages' ) );
 
 			add_action( 'admin_menu', array( $this, 'display_admin_menu' ) );
+			add_action( 'parent_file', array( $this, 'active_admin_menu' ) );
 
 			// Actions.
 			add_filter( 'fl_builder_post_types', array( $this, 'bb_builder_compatibility' ), 10, 1 );
@@ -113,8 +114,6 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		 */
 		public function display_admin_menu() {
 
-			global $menu;
-
 			add_submenu_page(
 				'edit.php?post_type=course',
 				__( 'Custom Templates', 'custom-template-lifterlms' ),
@@ -122,6 +121,23 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 				'manage_lifterlms',
 				'edit.php?post_type=bsf-custom-template'
 			);
+		}
+
+		/**
+		 * Set Active Admin menu
+		 *
+		 * @return string
+		 */
+		public function active_admin_menu() {
+
+			global $parent_file, $current_screen, $submenu_file, $pagenow;
+
+			if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && 'bsf-custom-template' == $current_screen->post_type ) :
+				$submenu_file = 'edit.php?post_type=bsf-custom-template';
+				$parent_file  = 'edit.php?post_type=course';
+			endif;
+
+			return $parent_file;
 		}
 
 		/**
@@ -232,4 +248,4 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 /**
  *  Kicking this off by calling 'get_instance()' method
  */
-LCL_Admin::get_instance();
+CTLLMS_Admin::get_instance();

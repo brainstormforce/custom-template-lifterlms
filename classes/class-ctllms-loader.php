@@ -8,12 +8,12 @@
 
 defined( 'ABSPATH' ) or exit;
 
-if ( ! class_exists( 'LCL_Loader' ) ) {
+if ( ! class_exists( 'CTLLMS_Loader' ) ) {
 
 	/**
-	 * Loader Class for LCL
+	 * Loader Class for CTLLMS
 	 */
-	class LCL_Loader {
+	class CTLLMS_Loader {
 
 		/**
 		 * Member Variable
@@ -27,7 +27,7 @@ if ( ! class_exists( 'LCL_Loader' ) ) {
 		 */
 		public static function get_instance() {
 
-			if ( ! defined( 'LLMS_VERSION' ) ) {
+			if ( ! defined( 'CTLLMS_VER' ) ) {
 				return false;
 			}
 
@@ -53,11 +53,11 @@ if ( ! class_exists( 'LCL_Loader' ) ) {
 		private function includes() {
 
 			// Load the metabbox class only in admin.
-			require_once LCLP_DIR . 'admin/class-lcl-admin.php';
-			require_once LCLP_DIR . 'classes/class-lcl.php';
+			require_once CTLLMS_DIR . 'admin/class-ctllms-admin.php';
+			require_once CTLLMS_DIR . 'classes/class-ctllms.php';
 		}
 	}
 }
 
-add_action( 'plugins_loaded', 'LCL_Loader::get_instance' );
+add_action( 'plugins_loaded', 'CTLLMS_Loader::get_instance' );
 
