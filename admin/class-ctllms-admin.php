@@ -85,7 +85,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 			$description = sprintf(
 				/* translators: 1: anchor start, 2: anchor close */
 				__( 'The selected custom template will replace default LifterLMS course template for non-enrolled students. <br> If you have not done already, add new custom templates from %1$shere%2$s.', 'custom-template-lifterlms' ),
-				'<a href="' . admin_url( 'post-new.php?post_type=bsf-custom-template' ) . '">',
+				'<a href="' . esc_url( admin_url( 'post-new.php?post_type=bsf-custom-template' ) ) . '">',
 				'</a>'
 			);
 
@@ -236,10 +236,10 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		 */
 		public function save_course_landing_page() {
 
-			$landing_page_id = ( isset( $_POST['course_template'] ) ) ? $_POST['course_template'] : '';
+			$landing_page_id = ( isset( $_POST['course_template'] ) ) ? absint( $_POST['course_template'] ): '';
 
 			if ( isset( $_POST['post_ID'] ) ) {
-				update_post_meta( $_POST['post_ID'], 'course_template', $landing_page_id );
+				update_post_meta( $_POST['post_ID'], 'course_template',  $landing_page_id );
 			}
 		}
 	}
