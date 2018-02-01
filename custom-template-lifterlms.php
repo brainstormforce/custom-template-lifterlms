@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name:     Custom Template for LifterLMS Courses
- * Plugin URI:      PLUGIN SITE HERE
- * Description:     PLUGIN DESCRIPTION HERE
- * Author:          YOUR NAME HERE
- * Author URI:      YOUR SITE HERE
+ * Plugin URI:      https://github.com/brainstormforce/custom-template-lifterlms
+ * Description:     This plugin will help you replace default LifterLMS course template for non-enrolled students with a custom template. You can design the custom template with any page builder of your choice.
+ * Author:          brainstormforce
+ * Author URI:      https://www.brainstormforce.com/
  * Text Domain:     custom-template-lifterlms
  * Domain Path:     /languages
  * Version:         1.0.0
@@ -12,9 +12,9 @@
  * @package         Custom Template for LifterLMS Courses
  */
 
-define( 'LCLP_VER', '1.0.0' );
-define( 'LCLP_DIR', plugin_dir_path( __FILE__ ) );
-define( 'LCLP_URL', plugins_url( '/', __FILE__ ) );
-define( 'LCLP_PATH', plugin_basename( __FILE__ ) );
+define( 'CTLLMS_VER', '1.0.0' );
+define( 'CTLLMS_DIR', plugin_dir_path( __FILE__ ) );
+define( 'CTLLMS_URL', plugins_url( '/', __FILE__ ) );
+define( 'CTLLMS_PATH', plugin_basename( __FILE__ ) );
 
-require_once LCLP_DIR . 'classes/class-lcl-loader.php';
+require_once CTLLMS_DIR . 'classes/class-ctllms-loader.php';

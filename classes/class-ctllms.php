@@ -6,14 +6,16 @@
  * @since 1.0.0
  */
 
-defined( 'ABSPATH' ) or exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit();
+}
 
-if ( ! class_exists( 'LCL' ) ) {
+if ( ! class_exists( 'CTLLMS' ) ) {
 
 	/**
-	 * Loader Class for LCL
+	 * CTLLMS
 	 */
-	class LCL {
+	class CTLLMS {
 
 		/**
 		 * Member Variable
@@ -27,7 +29,7 @@ if ( ! class_exists( 'LCL' ) ) {
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 
 			return self::$instance;
@@ -57,7 +59,7 @@ if ( ! class_exists( 'LCL' ) ) {
 			$template = self::get_template();
 			if ( $template ) {
 				$template_sidebar = get_post_meta( $template, 'site-sidebar-layout', true );
-				if ( ! empty( $template_sidebar ) && 'default' != $template_sidebar ) {
+				if ( ! empty( $template_sidebar ) && 'default' !== $template_sidebar ) {
 					$sidebar = $template_sidebar;
 				}
 			}
@@ -76,7 +78,7 @@ if ( ! class_exists( 'LCL' ) ) {
 			$template = self::get_template();
 			if ( $template ) {
 				$template_layout = get_post_meta( $template, 'site-content-layout', true );
-				if ( ! empty( $template_layout ) && 'default' != $template_layout ) {
+				if ( ! empty( $template_layout ) && 'default' !== $template_layout ) {
 					$layout = $template_layout;
 				}
 			}
@@ -96,7 +98,7 @@ if ( ! class_exists( 'LCL' ) ) {
 			if ( $template ) {
 				$template_status = get_post_meta( $template, 'site-post-title', true );
 				if ( ! empty( $template_status ) ) {
-					$status = ( 'disabled' == $template_status ) ? false : true;
+					$status = ( 'disabled' === $template_status ) ? false : true;
 				}
 			}
 
@@ -115,7 +117,7 @@ if ( ! class_exists( 'LCL' ) ) {
 			if ( $template && is_singular() ) {
 				$template_status = get_post_meta( $template, 'ast-featured-img', true );
 				if ( ! empty( $template_status ) ) {
-					$status = ( 'disabled' == $template_status ) ? false : true;
+					$status = ( 'disabled' === $template_status ) ? false : true;
 				}
 			}
 
@@ -139,7 +141,7 @@ if ( ! class_exists( 'LCL' ) ) {
 			}
 
 			$template = get_post_meta( get_the_id(), 'course_template', true );
-			if ( '' == $template ) {
+			if ( '' === $template ) {
 				return false;
 			}
 
@@ -230,7 +232,7 @@ if ( ! class_exists( 'LCL' ) ) {
 
 			global $post;
 			$current_post = $post;
-			$post         = get_post( $post_id, OBJECT );
+			$post         = get_post( $post_id, OBJECT ); // WPCS: OVERRIDE OK.
 			setup_postdata( $post );
 
 			if ( class_exists( 'FLBuilderModel' ) ) {
@@ -241,8 +243,8 @@ if ( ! class_exists( 'LCL' ) ) {
 
 					ob_start();
 					if ( is_callable( 'FLBuilderShortcodes::insert_layout' ) ) {
-						echo FLBuilderShortcodes::insert_layout(
-							array( // WPCS: XSS OK.
+						echo FLBuilderShortcodes::insert_layout( // WPCS: XSS OK.
+							array(
 								'id' => $post_id,
 							)
 						);
@@ -255,10 +257,10 @@ if ( ! class_exists( 'LCL' ) ) {
 			if ( self::is_elementor_activated( $post_id ) ) {
 
 				// set post to glabal post.
-				$post               = $current_post;
+				$post               = $current_post; // WPCS: OVERRIDE OK.
 				$elementor_instance = Elementor\Plugin::instance();
 				ob_start();
-				echo $elementor_instance->frontend->get_builder_content_for_display( $post_id );
+				echo $elementor_instance->frontend->get_builder_content_for_display( $post_id ); // WPCS: XSS OK.
 				wp_reset_postdata();
 				return ob_get_clean();
 			}
@@ -308,7 +310,7 @@ if ( ! class_exists( 'LCL' ) ) {
 			$post      = get_post( $post_id );
 			$vc_active = get_post_meta( $post_id, '_wpb_vc_js_status', true );
 
-			if ( class_exists( 'Vc_Manager' ) && ( 'true' == $vc_active || has_shortcode( $post->post_content, 'vc_row' ) ) ) {
+			if ( class_exists( 'Vc_Manager' ) && ( 'true' === $vc_active || true === $vc_active || has_shortcode( $post->post_content, 'vc_row' ) ) ) {
 				return true;
 			}
 
@@ -318,5 +320,5 @@ if ( ! class_exists( 'LCL' ) ) {
 	}
 }
 
-LCL::get_instance();
+CTLLMS::get_instance();
 

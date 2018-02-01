@@ -6,14 +6,18 @@
  * @since 1.0.0
  */
 
-if ( ! class_exists( 'LCL_Admin' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
+	exit();
+}
+
+if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 
 	/**
 	 * Course Custom Template Initialization
 	 *
 	 * @since 1.0.0
 	 */
-	class LCL_Admin {
+	class CTLLMS_Admin {
 
 
 		/**
@@ -28,7 +32,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -42,6 +46,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 			add_filter( 'post_updated_messages', array( $this, 'custom_post_type_post_update_messages' ) );
 
 			add_action( 'admin_menu', array( $this, 'display_admin_menu' ) );
+			add_action( 'parent_file', array( $this, 'active_admin_menu' ) );
 
 			// Actions.
 			add_filter( 'fl_builder_post_types', array( $this, 'bb_builder_compatibility' ), 10, 1 );
@@ -84,7 +89,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 			$description = sprintf(
 				/* translators: 1: anchor start, 2: anchor close */
 				__( 'The selected custom template will replace default LifterLMS course template for non-enrolled students. <br> If you have not done already, add new custom templates from %1$shere%2$s.', 'custom-template-lifterlms' ),
-				'<a href="' . admin_url( 'post-new.php?post_type=bsf-custom-template' ) . '">',
+				'<a href="' . esc_url( admin_url( 'post-new.php?post_type=bsf-custom-template' ) ) . '">',
 				'</a>'
 			);
 
@@ -113,8 +118,6 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		 */
 		public function display_admin_menu() {
 
-			global $menu;
-
 			add_submenu_page(
 				'edit.php?post_type=course',
 				__( 'Custom Templates', 'custom-template-lifterlms' ),
@@ -125,11 +128,28 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		}
 
 		/**
+		 * Set Active Admin menu
+		 *
+		 * @return string
+		 */
+		public function active_admin_menu() {
+
+			global $parent_file, $current_screen, $submenu_file, $pagenow;
+
+			if ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && 'bsf-custom-template' === $current_screen->post_type ) :
+				$submenu_file = 'edit.php?post_type=bsf-custom-template'; // WPCS: OVERRIDE OK.
+				$parent_file  = 'edit.php?post_type=course'; // WPCS: OVERRIDE OK.
+			endif;
+
+			return $parent_file;
+		}
+
+		/**
 		 * Create Course Custom Template custom post type
 		 *
 		 * @return void
 		 */
-		function llms_course_landing_page_post_type() {
+		public function llms_course_landing_page_post_type() {
 
 			$labels = array(
 				'name'          => esc_html_x( 'Course Custom Templates', 'llms course landing page general name', 'custom-template-lifterlms' ),
@@ -164,11 +184,11 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		 * @param array $messages Array of default messages.
 		 * @return array
 		 */
-		function custom_post_type_post_update_messages( $messages ) {
+		public function custom_post_type_post_update_messages( $messages ) {
 
 			$custom_post_type = get_post_type( get_the_ID() );
 
-			if ( 'bsf-custom-template' == $custom_post_type ) {
+			if ( 'bsf-custom-template' === $custom_post_type ) {
 
 				$obj                           = get_post_type_object( $custom_post_type );
 				$singular_name                 = $obj->labels->singular_name;
@@ -206,7 +226,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		 * @param array $value Array of post types.
 		 * @return array
 		 */
-		function bb_builder_compatibility( $value ) {
+		public function bb_builder_compatibility( $value ) {
 
 			$value[] = 'bsf-custom-template';
 
@@ -220,7 +240,7 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 		 */
 		public function save_course_landing_page() {
 
-			$landing_page_id = ( isset( $_POST['course_template'] ) ) ? $_POST['course_template'] : '';
+			$landing_page_id = ( isset( $_POST['course_template'] ) ) ? absint( $_POST['course_template'] ) : '';
 
 			if ( isset( $_POST['post_ID'] ) ) {
 				update_post_meta( $_POST['post_ID'], 'course_template', $landing_page_id );
@@ -232,4 +252,4 @@ if ( ! class_exists( 'LCL_Admin' ) ) {
 /**
  *  Kicking this off by calling 'get_instance()' method
  */
-LCL_Admin::get_instance();
+CTLLMS_Admin::get_instance();
