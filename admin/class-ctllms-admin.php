@@ -236,6 +236,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		/**
 		 * Save Course Landing Page Id.
 		 *
+		 * @param  int $post_id Current Post id.
 		 * @return void
 		 */
 		public function save_course_landing_page( $post_id ) {
