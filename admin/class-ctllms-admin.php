@@ -236,15 +236,14 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		/**
 		 * Save Course Landing Page Id.
 		 *
+		 * @param  int $post_id Current Post id.
 		 * @return void
 		 */
-		public function save_course_landing_page() {
+		public function save_course_landing_page( $post_id ) {
 
 			$landing_page_id = ( isset( $_POST['course_template'] ) ) ? absint( $_POST['course_template'] ) : '';
 
-			if ( isset( $_POST['post_ID'] ) ) {
-				update_post_meta( $_POST['post_ID'], 'course_template', $landing_page_id );
-			}
+			update_post_meta( $post_id, 'course_template', $landing_page_id );
 		}
 	}
 } // End if().
