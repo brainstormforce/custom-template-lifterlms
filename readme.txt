@@ -1,5 +1,5 @@
 === Custom Template for LifterLMS Courses ===
-Contributors: brainstormforce
+Contributors: brainstormforce, wpcrafter
 Donate link: https://www.paypal.me/BrainstormForce
 Tags: liftlms, course, page-buider, beaver builder, elementor, visual composer
 Requires at least: 4.4
