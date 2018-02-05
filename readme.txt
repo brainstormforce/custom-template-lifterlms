@@ -29,7 +29,7 @@ Convert the default LifterLMS course template that appears for non enrolled stud
 4. Select the template for individual course
 5. The default LifterLMS template for that individual course will be replaced with the custom template selected in previous step
 
-This plugin currently works best with the Astra Theme.
+This plugin currently works best with the <a href="https://wpastra.com/?utm_source=wp-org&utm_medium=readme&utm_campaign=custom-templates-lifterlms">Astra Theme</a>.
 
 == Changelog ==
 
