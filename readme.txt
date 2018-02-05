@@ -15,9 +15,6 @@ The selected custom template will replace default LifterLMS course template for 
 
 This plugin will help you replace default LifterLMS course template for non-enrolled students with a custom template. You can design the custom template with any page builder of your choice.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
-
 Convert the default LifterLMS course template that appears for non enrolled students into a custom designed, sales or landing page.
 
 == Installation ==
@@ -32,7 +29,7 @@ Convert the default LifterLMS course template that appears for non enrolled stud
 4. Select the template for individual course
 5. The default LifterLMS template for that individual course will be replaced with the custom template selected in previous step
 
-This plugin currently works best with the Astra Theme. But here is how other themes can add support.
+This plugin currently works best with the Astra Theme.
 
 == Changelog ==
 
