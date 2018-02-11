@@ -174,6 +174,23 @@ if ( ! class_exists( 'CTLLMS' ) ) {
 				}
 			}
 
+			// Check if current layout is built using the thrive architect.
+			if ( self::is_tve_activated( $template ) ) {
+
+				if ( tve_get_post_meta( $template, 'thrive_icon_pack' ) && ! wp_style_is( 'thrive_icon_pack', 'enqueued' ) ) {
+					TCB_Icon_Manager::enqueue_icon_pack();
+				}
+
+				tve_enqueue_extra_resources( $template );
+				tve_enqueue_style_family( $template );
+				tve_enqueue_custom_fonts( $template, true );
+				tve_load_custom_css( $template );
+
+				add_filter( 'tcb_enqueue_resources', '__return_true' );
+				tve_frontend_enqueue_scripts();
+				remove_filter( 'tcb_enqueue_resources', '__return_true' );
+			}
+
 			// Add VC style if it is activated.
 			$wpb_custom_css = get_post_meta( $template, '_wpb_shortcodes_custom_css', true );
 			if ( ! empty( $wpb_custom_css ) ) {
@@ -271,6 +288,12 @@ if ( ! class_exists( 'CTLLMS' ) ) {
 				return ob_get_clean();
 			}
 
+			// Add custom support for the Thrive Architect.
+			if ( self::is_tve_activated( $post_id ) ) {
+				echo apply_filters( 'the_content', $post->post_content ); // WPCS: XSS OK.
+				return;
+			}
+
 			ob_start();
 			echo do_shortcode( $post->post_content );
 			wp_reset_postdata();
@@ -315,6 +338,27 @@ if ( ! class_exists( 'CTLLMS' ) ) {
 			}
 
 			return false;
+		}
+
+		/**
+		 * Check if Thrive Architect is enabled for the post.
+		 *
+		 * @since  1.1.0
+		 *
+		 * @param  int $id Post ID of the post which is to be tested for the Thrive Architect.
+		 * @return boolean     Returns true if the post is created using Thrive Architect, False if not.
+		 */
+		public static function is_tve_activated( $id ) {
+
+			if ( ! defined( 'TVE_VERSION' ) ) {
+				return false;
+			}
+
+			if ( get_post_meta( $id, 'tcb_editor_enabled', true ) ) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 	}
