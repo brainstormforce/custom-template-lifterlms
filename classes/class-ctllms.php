@@ -57,6 +57,7 @@ if ( ! class_exists( 'CTLLMS' ) ) {
 		public function astra_page_layout( $sidebar ) {
 
 			$template = self::get_template();
+
 			if ( $template ) {
 				$template_sidebar = get_post_meta( $template, 'site-sidebar-layout', true );
 				if ( ! empty( $template_sidebar ) && 'default' !== $template_sidebar ) {
@@ -290,8 +291,10 @@ if ( ! class_exists( 'CTLLMS' ) ) {
 
 			// Add custom support for the Thrive Architect.
 			if ( self::is_tve_activated( $post_id ) ) {
+				ob_start();
 				echo apply_filters( 'the_content', $post->post_content ); // WPCS: XSS OK.
-				return;
+				wp_reset_postdata();
+				return ob_get_clean();
 			}
 
 			ob_start();
