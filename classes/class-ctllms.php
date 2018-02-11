@@ -195,7 +195,7 @@ if ( ! class_exists( 'CTLLMS' ) ) {
 			// Add VC style if it is activated.
 			$wpb_custom_css = get_post_meta( $template, '_wpb_shortcodes_custom_css', true );
 			if ( ! empty( $wpb_custom_css ) ) {
-				wp_add_inline_style( 'astra-addon-css', $wpb_custom_css );
+				wp_add_inline_style( 'astra-theme-css', $wpb_custom_css );
 			}
 		}
 
