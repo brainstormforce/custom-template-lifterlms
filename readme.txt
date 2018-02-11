@@ -4,8 +4,8 @@ Donate link: https://www.paypal.me/BrainstormForce
 Tags: liftlms, course, page-buider, beaver builder, elementor, visual composer
 Requires at least: 4.4
 Requires PHP: 5.3
-Tested up to: 4.9.3
-Stable tag: 1.0.0
+Tested up to: 4.9.4
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,10 @@ Convert the default LifterLMS course template that appears for non enrolled stud
 This plugin currently works best with the <a href="https://wpastra.com/?utm_source=wp-org&utm_medium=readme&utm_campaign=custom-templates-lifterlms">Astra Theme</a>.
 
 == Changelog ==
+
+= 1.0.1 =
+* Support for the Thrive Architect for building the custom course templates.
+* Improvement: Load WP Bakery Page Builder's custom CSS along with Astra Theme's CSS instead of Astra Pro's CSS to have wider support.
 
 = 1.0.0 =
 * Initial Release
