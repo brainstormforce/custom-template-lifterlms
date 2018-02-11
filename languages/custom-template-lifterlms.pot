@@ -1,11 +1,11 @@
-# Copyright (C) 2018 YOUR NAME HERE
+# Copyright (C) 2018 brainstormforce
 # This file is distributed under the same license as the Custom Template for LifterLMS Courses package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Template for LifterLMS Courses 1.0.0\n"
+"Project-Id-Version: Custom Template for LifterLMS Courses 1.0.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/custom-template-lifterlms\n"
-"POT-Creation-Date: 2018-01-30 15:00:07+00:00\n"
+"POT-Creation-Date: 2018-02-11 05:01:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: admin/class-lcl-admin.php:86
+#: admin/class-ctllms-admin.php:91
 #. translators: 1: anchor start, 2: anchor close
 msgid ""
 "The selected custom template will replace default LifterLMS course template "
@@ -33,88 +33,88 @@ msgid ""
 "custom templates from %1$shere%2$s."
 msgstr ""
 
-#: admin/class-lcl-admin.php:92
+#: admin/class-ctllms-admin.php:97
 msgid "Custom Template"
 msgstr ""
 
-#: admin/class-lcl-admin.php:99
+#: admin/class-ctllms-admin.php:104
 msgid "Select Custom Template for this course"
 msgstr ""
 
-#: admin/class-lcl-admin.php:120 admin/class-lcl-admin.php:121
+#: admin/class-ctllms-admin.php:123 admin/class-ctllms-admin.php:124
 msgid "Custom Templates"
 msgstr ""
 
-#: admin/class-lcl-admin.php:137
+#: admin/class-ctllms-admin.php:157
 msgid "Search Course Custom Templates"
 msgstr ""
 
-#: admin/class-lcl-admin.php:138
+#: admin/class-ctllms-admin.php:158
 msgid "All Course Custom Templates"
 msgstr ""
 
-#: admin/class-lcl-admin.php:139
+#: admin/class-ctllms-admin.php:159
 msgid "Edit Course Custom Template"
 msgstr ""
 
-#: admin/class-lcl-admin.php:140
+#: admin/class-ctllms-admin.php:160
 msgid "View Course Custom Template"
 msgstr ""
 
-#: admin/class-lcl-admin.php:141 admin/class-lcl-admin.php:143
+#: admin/class-ctllms-admin.php:161 admin/class-ctllms-admin.php:163
 msgid "Add New"
 msgstr ""
 
-#: admin/class-lcl-admin.php:142
+#: admin/class-ctllms-admin.php:162
 msgid "Update Course Custom Template"
 msgstr ""
 
-#: admin/class-lcl-admin.php:144
+#: admin/class-ctllms-admin.php:164
 msgid "New Course Custom Template Name"
 msgstr ""
 
-#: admin/class-lcl-admin.php:178 admin/class-lcl-admin.php:184
+#: admin/class-ctllms-admin.php:198 admin/class-ctllms-admin.php:204
 #. translators: %s: singular custom post type name
 msgid "%s updated."
 msgstr ""
 
-#: admin/class-lcl-admin.php:180
+#: admin/class-ctllms-admin.php:200
 #. translators: %s: singular custom post type name
 msgid "Custom %s updated."
 msgstr ""
 
-#: admin/class-lcl-admin.php:182
+#: admin/class-ctllms-admin.php:202
 #. translators: %s: singular custom post type name
 msgid "Custom %s deleted."
 msgstr ""
 
-#: admin/class-lcl-admin.php:186
+#: admin/class-ctllms-admin.php:206
 #. translators: %1$s: singular custom post type name ,%2$s: date and time of
 #. the revision
 msgid "%1$s restored to revision from %2$s"
 msgstr ""
 
-#: admin/class-lcl-admin.php:188
+#: admin/class-ctllms-admin.php:208
 #. translators: %s: singular custom post type name
 msgid "%s published."
 msgstr ""
 
-#: admin/class-lcl-admin.php:190
+#: admin/class-ctllms-admin.php:210
 #. translators: %s: singular custom post type name
 msgid "%s saved."
 msgstr ""
 
-#: admin/class-lcl-admin.php:192
+#: admin/class-ctllms-admin.php:212
 #. translators: %s: singular custom post type name
 msgid "%s submitted."
 msgstr ""
 
-#: admin/class-lcl-admin.php:194
+#: admin/class-ctllms-admin.php:214
 #. translators: %s: singular custom post type name
 msgid "%s scheduled for."
 msgstr ""
 
-#: admin/class-lcl-admin.php:196
+#: admin/class-ctllms-admin.php:216
 #. translators: %s: singular custom post type name
 msgid "%s draft updated."
 msgstr ""
@@ -124,27 +124,30 @@ msgid "Custom Template for LifterLMS Courses"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "PLUGIN SITE HERE"
+msgid "https://github.com/brainstormforce/custom-template-lifterlms"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "PLUGIN DESCRIPTION HERE"
+msgid ""
+"This plugin will help you replace default LifterLMS course template for "
+"non-enrolled students with a custom template. You can design the custom "
+"template with any page builder of your choice."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "YOUR NAME HERE"
+msgid "brainstormforce"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "YOUR SITE HERE"
+msgid "https://www.brainstormforce.com/"
 msgstr ""
 
-#: admin/class-lcl-admin.php:135
+#: admin/class-ctllms-admin.php:155
 msgctxt "llms course landing page general name"
 msgid "Course Custom Templates"
 msgstr ""
 
-#: admin/class-lcl-admin.php:136
+#: admin/class-ctllms-admin.php:156
 msgctxt "llms course landing page singular name"
 msgid "Course Custom Template"
 msgstr ""
