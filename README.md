@@ -35,6 +35,7 @@ This plugin currently works best with the <a href="https://wpastra.com/?utm_sour
 
 ### 1.0.1 ###
 * Support for the Thrive Architect for building the custom course templates.
+* Improvement: Load WP Bakery Page Builder's custom CSS along with Astra Theme's CSS instead of Astra Pro's CSS to have wider support.
 
 ### 1.0.0 ###
 * Initial Release
