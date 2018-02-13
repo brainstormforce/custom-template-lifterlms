@@ -55,6 +55,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 			// Actions.
 			add_filter( 'fl_builder_post_types', array( $this, 'bb_builder_compatibility' ), 10, 1 );
 			add_filter( 'llms_metabox_fields_lifterlms_course_options', array( $this, 'course_settings_fields' ) );
+			add_filter( 'llms_metabox_fields_lifterlms_membership', array( $this, 'course_settings_fields' ) );
 			add_action( 'save_post', array( $this, 'save_course_landing_page' ) );
 		}
 
@@ -137,7 +138,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		public function display_admin_menu() {
 
 			add_submenu_page(
-				'edit.php?post_type=course',
+				'lifterlms',
 				__( 'Custom Templates', 'custom-template-lifterlms' ),
 				__( 'Custom Templates', 'custom-template-lifterlms' ),
 				'manage_lifterlms',
@@ -156,7 +157,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 
 			if ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && 'bsf-custom-template' === $current_screen->post_type ) :
 				$submenu_file = 'edit.php?post_type=bsf-custom-template'; // WPCS: OVERRIDE OK.
-				$parent_file  = 'edit.php?post_type=course'; // WPCS: OVERRIDE OK.
+				$parent_file  = 'lifterlms'; // WPCS: OVERRIDE OK.
 			endif;
 
 			return $parent_file;

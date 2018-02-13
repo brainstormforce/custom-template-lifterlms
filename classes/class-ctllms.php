@@ -133,7 +133,7 @@ if ( ! class_exists( 'CTLLMS' ) ) {
 		public static function get_template() {
 
 			// Don't override the template if the post type is not `course`.
-			if ( 'course' !== get_post_type() ) {
+			if ( ! is_singular( 'course' ) && ! is_singular( 'llms_membership' ) ) {
 				return false;
 			}
 
@@ -157,7 +157,7 @@ if ( ! class_exists( 'CTLLMS' ) ) {
 		public function enqueue_scripts() {
 
 			// Don't override the template if the post type is not `course`.
-			if ( 'course' !== get_post_type() ) {
+			if ( ! is_singular( 'course' ) && ! is_singular( 'llms_membership' ) ) {
 				return false;
 			}
 
@@ -212,7 +212,7 @@ if ( ! class_exists( 'CTLLMS' ) ) {
 			}
 
 			// Don't override the template if the post type is not `course`.
-			if ( 'course' !== get_post_type() ) {
+			if ( ! is_singular( 'course' ) && ! is_singular( 'llms_membership' ) ) {
 				return false;
 			}
 
