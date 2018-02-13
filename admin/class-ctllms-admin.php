@@ -44,7 +44,6 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 
 			// Activation hook.
 			register_activation_hook( CTLLMS_FILE, array( $this, 'rewrite_rules' ) );
-			register_deactivation_hook( CTLLMS_FILE, array( $this, 'rewrite_rules' ) );
 
 			add_action( 'init', array( $this, 'llms_course_landing_page_post_type' ) );
 			add_filter( 'post_updated_messages', array( $this, 'custom_post_type_post_update_messages' ) );
@@ -64,8 +63,9 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		 * @since 1.0.2
 		 * @return void
 		 */
-		function rewrite_rules() {
+		public function rewrite_rules() {
 			
+			$this->llms_course_landing_page_post_type();
 			// flush rewrite rules.
 			flush_rewrite_rules();
 		}
