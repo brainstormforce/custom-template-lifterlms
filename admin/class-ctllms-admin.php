@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 
 	/**
-	 * Course Custom Template Initialization
+	 * LifterLMS Custom Template Initialization
 	 *
 	 * @since 1.0.0
 	 */
@@ -86,9 +86,21 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		 */
 		public function help_meta_box_callback() {
 
-			echo esc_html__( 'You can use LifterLMS shortcodes to create a custom layout. To know more about LifterLMS shortcodes ', 'custom-template-lifterlms' );
-			echo '<a href="https://lifterlms.com/docs/shortcodes/" target="_blank" rel="noopner" >' . esc_html__( 'click here &raquo;', 'custom-template-lifterlms' ) . '</a>';
+			echo sprintf(
+				/* translators: 1: anchor start, 2: anchor close */
+				esc_html__( '%1$sSee list of all LifterLMS shortcodes%2$s that you can add in the custom template.', 'custom-template-lifterlms' ),
+				'<a href="https://lifterlms.com/docs/shortcodes/" target="_blank" rel="noopner" >',
+				'</a>'
+			);
 
+			echo '<br/><br/>';
+
+			echo sprintf(
+				/* translators: 1: anchor start, 2: anchor close */
+				esc_html__( 'How to %1$sget URL of the checkout pages%2$s to link it from custom template.', 'custom-template-lifterlms' ),
+				'<a href="https://lifterlms.com/docs/link-lifterlms-checkout-flow-buy-button-landing-page-not-made-lifterlms/" target="_blank" rel="noopner" >',
+				'</a>'
+			);
 		}
 
 		/**
@@ -136,12 +148,21 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 				}
 			}
 
+			$post_type_label = ( 'llms_membership' === get_post_type() ) ? __( 'membership', 'custom-template-lifterlms' ) : __( 'course', 'custom-template-lifterlms' );
+
 			$selected    = get_post_meta( get_the_ID(), 'course_template', true );
 			$description = sprintf(
-				/* translators: 1: anchor start, 2: anchor close */
-				__( 'The selected custom template will replace default LifterLMS course template for non-enrolled students. <br> If you have not done already, add new custom templates from %1$shere%2$s.', 'custom-template-lifterlms' ),
+				/* translators: 1: label, 2: anchor start, 3: anchor close */
+				__( 'The selected custom template will replace default LifterLMS %1$s template for non-enrolled students. <br> If you have not done already, add new custom templates from %2$shere%3$s.', 'custom-template-lifterlms' ),
+				$post_type_label,
 				'<a href="' . esc_url( admin_url( 'post-new.php?post_type=bsf-custom-template' ) ) . '">',
 				'</a>'
+			);
+
+			$label = sprintf(
+				/* translators: 1: label */
+				__( 'Select Custom Template for this %s', 'custom-template-lifterlms' ),
+				$post_type_label
 			);
 
 			$fields[] = array(
@@ -152,7 +173,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 						'desc'     => $description,
 						'id'       => 'course_template',
 						'type'     => 'select',
-						'label'    => __( 'Select Custom Template for this course', 'custom-template-lifterlms' ),
+						'label'    => $label,
 						'value'    => $all_posts,
 						'selected' => $selected,
 					),
@@ -196,23 +217,23 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		}
 
 		/**
-		 * Create Course Custom Template custom post type
+		 * Create LifterLMS Custom Template custom post type
 		 *
 		 * @return void
 		 */
 		public function llms_course_landing_page_post_type() {
 
 			$labels = array(
-				'name'          => esc_html_x( 'Course Custom Templates', 'llms course landing page general name', 'custom-template-lifterlms' ),
-				'singular_name' => esc_html_x( 'Course Custom Template', 'llms course landing page singular name', 'custom-template-lifterlms' ),
-				'search_items'  => esc_html__( 'Search Course Custom Templates', 'custom-template-lifterlms' ),
-				'all_items'     => esc_html__( 'All Course Custom Templates', 'custom-template-lifterlms' ),
-				'edit_item'     => esc_html__( 'Edit Course Custom Template', 'custom-template-lifterlms' ),
-				'view_item'     => esc_html__( 'View Course Custom Template', 'custom-template-lifterlms' ),
+				'name'          => esc_html_x( 'LifterLMS Custom Templates', 'llms course landing page general name', 'custom-template-lifterlms' ),
+				'singular_name' => esc_html_x( 'LifterLMS Custom Template', 'llms course landing page singular name', 'custom-template-lifterlms' ),
+				'search_items'  => esc_html__( 'Search LifterLMS Custom Templates', 'custom-template-lifterlms' ),
+				'all_items'     => esc_html__( 'All LifterLMS Custom Templates', 'custom-template-lifterlms' ),
+				'edit_item'     => esc_html__( 'Edit LifterLMS Custom Template', 'custom-template-lifterlms' ),
+				'view_item'     => esc_html__( 'View LifterLMS Custom Template', 'custom-template-lifterlms' ),
 				'add_new'       => esc_html__( 'Add New', 'custom-template-lifterlms' ),
-				'update_item'   => esc_html__( 'Update Course Custom Template', 'custom-template-lifterlms' ),
+				'update_item'   => esc_html__( 'Update LifterLMS Custom Template', 'custom-template-lifterlms' ),
 				'add_new_item'  => esc_html__( 'Add New', 'custom-template-lifterlms' ),
-				'new_item_name' => esc_html__( 'New Course Custom Template Name', 'custom-template-lifterlms' ),
+				'new_item_name' => esc_html__( 'New LifterLMS Custom Template Name', 'custom-template-lifterlms' ),
 			);
 			$args   = array(
 				'labels'              => $labels,
