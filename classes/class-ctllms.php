@@ -1,8 +1,8 @@
 <?php
 /**
- * Custom Template for LifterLMS Courses.
+ * Custom Template for LifterLMS.
  *
- * @package Custom Template for LifterLMS Courses
+ * @package Custom Template for LifterLMS
  * @since 1.0.0
  */
 
