@@ -52,11 +52,31 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 			add_action( 'admin_menu', array( $this, 'display_admin_menu' ) );
 			add_action( 'parent_file', array( $this, 'active_admin_menu' ) );
 
+			add_action( 'add_meta_boxes', array( $this, 'register_meta_boxes' ) );
+
 			// Actions.
 			add_filter( 'fl_builder_post_types', array( $this, 'bb_builder_compatibility' ), 10, 1 );
 			add_filter( 'llms_metabox_fields_lifterlms_course_options', array( $this, 'course_settings_fields' ) );
 			add_filter( 'llms_metabox_fields_lifterlms_membership', array( $this, 'course_settings_fields' ) );
 			add_action( 'save_post', array( $this, 'save_course_landing_page' ) );
+		}
+
+		public function register_meta_boxes() {
+
+			add_meta_box(
+				'ctllms-help',
+				__( 'Help', 'custom-template-lifterlms' ),
+				array( $this, 'help_meta_box_callback' ),
+				'bsf-custom-template',
+				'side'
+			);
+		}
+
+		public function help_meta_box_callback() {
+			
+			echo esc_html__( 'You can use LifterLMS shortcodes to create a custom layout. To know more about LifterLMS shortcodes ', 'custom-template-lifterlms' );
+			echo '<a href="https://lifterlms.com/docs/shortcodes/" target="_blank" rel="noopner" >' . esc_html__( 'click here &raquo;', 'custom-template-lifterlms' ) . '</a>';
+
 		}
 
 		/**
