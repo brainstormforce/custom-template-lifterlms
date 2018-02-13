@@ -61,6 +61,12 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 			add_action( 'save_post', array( $this, 'save_course_landing_page' ) );
 		}
 
+		/**
+		 * Register Meta Boxes.
+		 *
+		 * @since  1.0.2
+		 * @return void
+		 */
 		public function register_meta_boxes() {
 
 			add_meta_box(
@@ -72,8 +78,14 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 			);
 		}
 
+		/**
+		 * Help meta box markup.
+		 *
+		 * @since  1.0.2
+		 * @return void
+		 */
 		public function help_meta_box_callback() {
-			
+
 			echo esc_html__( 'You can use LifterLMS shortcodes to create a custom layout. To know more about LifterLMS shortcodes ', 'custom-template-lifterlms' );
 			echo '<a href="https://lifterlms.com/docs/shortcodes/" target="_blank" rel="noopner" >' . esc_html__( 'click here &raquo;', 'custom-template-lifterlms' ) . '</a>';
 
@@ -86,7 +98,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		 * @return void
 		 */
 		public function rewrite_rules() {
-			
+
 			$this->llms_course_landing_page_post_type();
 
 			// flush rewrite rules.
