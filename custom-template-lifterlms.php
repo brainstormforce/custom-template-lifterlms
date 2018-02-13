@@ -13,6 +13,7 @@
  */
 
 define( 'CTLLMS_VER', '1.0.1' );
+define( 'CTLLMS_FILE', __FILE__ );
 define( 'CTLLMS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CTLLMS_URL', plugins_url( '/', __FILE__ ) );
 define( 'CTLLMS_PATH', plugin_basename( __FILE__ ) );

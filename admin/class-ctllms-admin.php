@@ -42,6 +42,10 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 		 */
 		public function __construct() {
 
+			// Activation hook.
+			register_activation_hook( CTLLMS_FILE, array( $this, 'rewrite_rules' ) );
+			register_deactivation_hook( CTLLMS_FILE, array( $this, 'rewrite_rules' ) );
+
 			add_action( 'init', array( $this, 'llms_course_landing_page_post_type' ) );
 			add_filter( 'post_updated_messages', array( $this, 'custom_post_type_post_update_messages' ) );
 
@@ -52,6 +56,18 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 			add_filter( 'fl_builder_post_types', array( $this, 'bb_builder_compatibility' ), 10, 1 );
 			add_filter( 'llms_metabox_fields_lifterlms_course_options', array( $this, 'course_settings_fields' ) );
 			add_action( 'save_post', array( $this, 'save_course_landing_page' ) );
+		}
+
+		/**
+		 * Reset write rules.
+		 *
+		 * @since 1.0.2
+		 * @return void
+		 */
+		function rewrite_rules() {
+			
+			// flush rewrite rules.
+			flush_rewrite_rules();
 		}
 
 		/**
