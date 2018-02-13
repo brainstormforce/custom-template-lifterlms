@@ -7,12 +7,12 @@
  * Author URI:      https://www.brainstormforce.com/
  * Text Domain:     custom-template-lifterlms
  * Domain Path:     /languages
- * Version:         1.0.1
+ * Version:         1.0.2
  *
  * @package         Custom Template for LifterLMS
  */
 
-define( 'CTLLMS_VER', '1.0.1' );
+define( 'CTLLMS_VER', '1.0.2' );
 define( 'CTLLMS_FILE', __FILE__ );
 define( 'CTLLMS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CTLLMS_URL', plugins_url( '/', __FILE__ ) );
