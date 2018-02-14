@@ -1,4 +1,4 @@
-=== Custom Template for LifterLMS Courses ===
+=== Custom Template for LifterLMS ===
 Contributors: brainstormforce, wpcrafter
 Donate link: https://www.paypal.me/BrainstormForce
 Tags: liftlms, course, page-buider, beaver builder, elementor, visual composer
@@ -32,6 +32,11 @@ Convert the default LifterLMS course template that appears for non enrolled stud
 This plugin currently works best with the <a href="https://wpastra.com/?utm_source=wp-org&utm_medium=readme&utm_campaign=custom-templates-lifterlms">Astra Theme</a>.
 
 == Changelog ==
+
+= 1.0.2 =
+# Updated plugin name.
+# New: Support added for Membership.
+# New: Help meta box added in Custom template post.
 
 = 1.0.1 =
 * Support for the Thrive Architect for building the custom course templates.
