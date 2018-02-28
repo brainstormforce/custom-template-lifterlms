@@ -135,6 +135,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 				'post_type'      => 'bsf-custom-template',
 				'posts_per_page' => 500,
 				'fields'         => 'ids',
+				'post_status'    => 'publish',
 			);
 
 			$posts = new WP_Query( $atts );
