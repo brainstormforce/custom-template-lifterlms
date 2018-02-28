@@ -5,7 +5,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.3  
 **Tested up to:** 4.9.4  
-**Stable tag:** 1.0.1  
+**Stable tag:** 1.0.2  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -32,6 +32,11 @@ Convert the default LifterLMS course template that appears for non enrolled stud
 This plugin currently works best with the <a href="https://wpastra.com/?utm_source=wp-org&utm_medium=readme&utm_campaign=custom-templates-lifterlms">Astra Theme</a>.
 
 ## Changelog ##
+
+### 1.0.2 ###
+* Updated plugin name.
+* New: Support added for Membership.
+* New: Help meta box added in Custom template post.
 
 ### 1.0.1 ###
 * Support for the Thrive Architect for building the custom course templates.
