@@ -319,7 +319,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 			update_post_meta( $post_id, 'course_template', $landing_page_id );
 		}
 	}
-} // End if().
+}
 
 /**
  *  Kicking this off by calling 'get_instance()' method
