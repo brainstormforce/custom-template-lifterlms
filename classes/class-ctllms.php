@@ -166,13 +166,15 @@ if ( ! class_exists( 'CTLLMS' ) ) {
 			}
 
 			$template = get_post_meta( get_the_id(), 'course_template', true );
-			if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 
-				if ( self::is_elementor_activated( $template ) ) {
-
+			if ( '' !== $template ) {
+				if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
+					$css_file = new \Elementor\Core\Files\CSS\Post( $template );
+				} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 					$css_file = new \Elementor\Post_CSS_File( $template );
-					$css_file->enqueue();
 				}
+
+				$css_file->enqueue();
 			}
 
 			// Check if current layout is built using the thrive architect.
