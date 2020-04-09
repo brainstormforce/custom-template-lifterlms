@@ -22,6 +22,7 @@
     "stringstream": ">=0.0.6",
     "tar": ">=2.2.2",
     "tar-fs": ">=1.16.2",
-    "underscore.string": ">=3.3.5"
+    "underscore.string": ">=3.3.5",
+    "cryptiles": ">=4.1.2"
   }
 }
