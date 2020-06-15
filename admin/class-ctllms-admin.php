@@ -135,6 +135,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 				'post_type'      => 'bsf-custom-template',
 				'posts_per_page' => 500,
 				'fields'         => 'ids',
+				'post_status'    => 'publish',
 			);
 
 			$posts = new WP_Query( $atts );
@@ -318,7 +319,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 			update_post_meta( $post_id, 'course_template', $landing_page_id );
 		}
 	}
-} // End if().
+}
 
 /**
  *  Kicking this off by calling 'get_instance()' method

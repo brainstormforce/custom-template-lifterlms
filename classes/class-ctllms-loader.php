@@ -29,7 +29,7 @@ if ( ! class_exists( 'CTLLMS_Loader' ) ) {
 		 */
 		public static function get_instance() {
 
-			if ( ! defined( 'CTLLMS_VER' ) ) {
+			if ( ! class_exists( 'LifterLMS' ) ) {
 				return false;
 			}
 
