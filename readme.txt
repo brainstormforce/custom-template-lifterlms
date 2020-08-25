@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Tags: lifterlms, course, page-buider, beaver builder, elementor, visual composer
 Requires at least: 4.4
 Requires PHP: 5.3
-Tested up to: 4.9.4
+Tested up to: 5.5
 Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -24,7 +24,7 @@ Convert the default LifterLMS course template that appears for non enrolled stud
 
 == Here is how this plugin works: == 
 1. Install & Active the Plugin
-2. Add a new Custom Template from the menu that would appear under LifterLMS Courses Menu
+2. Add a new Custom Template from the menu that would appear under LifterLMS Menu
 3. Added Custom Templates will appear in the admin area of all individual courses
 4. Select the template for individual course
 5. The default LifterLMS template for that individual course will be replaced with the custom template selected in previous step
