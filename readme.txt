@@ -22,7 +22,7 @@ Convert the default LifterLMS course template that appears for non enrolled stud
 1. Upload `custom-template-lifterlms.zip` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
-== Here is how this plugin works: == 
+== Here is how this plugin works: ==
 1. Install & Active the Plugin
 2. Add a new Custom Template from the menu that would appear under LifterLMS Menu
 3. Added Custom Templates will appear in the admin area of all individual courses
@@ -34,7 +34,7 @@ This plugin currently works best with the <a href="https://wpastra.com/?utm_sour
 == Changelog ==
 
 = 1.0.3 =
-* Improvement: Compatibility with latest WordPress PHP_CodeSniffer rules
+* Improvement: Compatibility with latest WordPress PHP_CodeSniffer rules.
 
 = 1.0.2 =
 * Updated plugin name.
