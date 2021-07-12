@@ -1,10 +1,10 @@
 # Custom Template for LifterLMS #
-**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [wpcrafter](https://profiles.wordpress.org/wpcrafter)  
+**Contributors:** brainstormforce, wpcrafter  
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Tags:** lifterlms, course, page-buider, beaver builder, elementor, visual composer  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.3  
-**Tested up to:** 5.7  
+**Tested up to:** 5.8  
 **Stable tag:** 1.0.3  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
