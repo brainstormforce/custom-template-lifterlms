@@ -23,7 +23,6 @@ before_script:
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
       composer install
     fi
-
 script:
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
