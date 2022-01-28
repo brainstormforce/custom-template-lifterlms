@@ -250,7 +250,7 @@ if ( ! class_exists( 'CTLLMS' ) ) {
 
 			global $post;
 			$current_post = $post;
-			$post         = get_post( $post_id, OBJECT ); // phpcs:ignore WordPress.Variables.GlobalVariables.OverrideProhibited
+			$post         = get_post( $post_id, OBJECT ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 			setup_postdata( $post );
 
 			if ( class_exists( 'FLBuilderModel' ) ) {
@@ -275,7 +275,7 @@ if ( ! class_exists( 'CTLLMS' ) ) {
 			if ( self::is_elementor_activated( $post_id ) ) {
 
 				// set post to glabal post.
-				$post               = $current_post; // phpcs:ignore WordPress.Variables.GlobalVariables.OverrideProhibited
+				$post               = $current_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 				$elementor_instance = Elementor\Plugin::instance();
 				ob_start();
 				echo $elementor_instance->frontend->get_builder_content_for_display( $post_id ); //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped

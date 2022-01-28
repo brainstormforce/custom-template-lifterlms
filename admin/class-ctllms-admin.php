@@ -133,7 +133,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 
 			$atts = array(
 				'post_type'      => 'bsf-custom-template',
-				'posts_per_page' => 500, //phpcs:ignore WordPress.Arrays.ArrayDeclarationSpacing.ArrayItemNoNewLine
+				'posts_per_page' => 500, //phpcs:ignore WordPress.WP.PostsPerPage.posts_per_page_posts_per_page
 				'fields'         => 'ids',
 			);
 
@@ -209,8 +209,8 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 			global $parent_file, $current_screen, $submenu_file, $pagenow;
 
 			if ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && 'bsf-custom-template' === $current_screen->post_type ) :
-				$submenu_file = 'edit.php?post_type=bsf-custom-template'; //phpcs:ignore WordPress.Variables.GlobalVariables.OverrideProhibited
-				$parent_file  = 'lifterlms';  //phpcs:ignore WordPress.Variables.GlobalVariables.OverrideProhibited
+				$submenu_file = 'edit.php?post_type=bsf-custom-template'; //phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+				$parent_file  = 'lifterlms';  //phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 			endif;
 
 			return $parent_file;
@@ -275,7 +275,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 					/* translators: %s: singular custom post type name */
 					4  => sprintf( __( '%s updated.', 'custom-template-lifterlms' ), $singular_name ),
 					/* translators: %1$s: singular custom post type name ,%2$s: date and time of the revision */
-					5  => isset( $_GET['revision'] ) ? sprintf( __( '%1$s restored to revision from %2$s', 'custom-template-lifterlms' ), $singular_name, wp_post_revision_title( (int) $_GET['revision'], false ) ) : false, //phpcs:ignore 
+					5  => isset( $_GET['revision'] ) ? sprintf( __( '%1$s restored to revision from %2$s', 'custom-template-lifterlms' ), $singular_name, wp_post_revision_title( (int) $_GET['revision'], false ) ) : false, //phpcs:ignore
 					/* translators: %s: singular custom post type name */
 					6  => sprintf( __( '%s published.', 'custom-template-lifterlms' ), $singular_name ),
 					/* translators: %s: singular custom post type name */

@@ -4,8 +4,8 @@ Donate link: https://www.paypal.me/BrainstormForce
 Tags: lifterlms, course, page-buider, beaver builder, elementor, visual composer
 Requires at least: 4.4
 Requires PHP: 5.3
-Tested up to: 5.8
-Stable tag: 1.0.3
+Tested up to: 5.9
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,9 @@ Convert the default LifterLMS course template that appears for non enrolled stud
 This plugin currently works best with the <a href="https://wpastra.com/?utm_source=wp-org&utm_medium=readme&utm_campaign=custom-templates-lifterlms">Astra Theme</a>.
 
 == Changelog ==
+
+= 1.0.4 =
+- Fix: Code updated according to coding standard.
 
 = 1.0.3 =
 * Improvement: Compatibility with latest WordPress PHP_CodeSniffer rules
