@@ -10,3 +10,4 @@ node_modules/
 .wordpress-org
 # Exclude composer's directories
 vendor/
+config.bat
