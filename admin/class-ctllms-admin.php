@@ -243,6 +243,7 @@ if ( ! class_exists( 'CTLLMS_Admin' ) ) {
 				'can_export'          => true,
 				'show_in_menu'        => false,
 				'show_in_admin_bar'   => true,
+				'show_in_rest'        => true, // Enable the Gutenburg editor!
 				'exclude_from_search' => true,
 				'supports'            => apply_filters( 'llms_course_landing_supports', array( 'title', 'editor', 'elementor' ) ),
 			);
