@@ -1,13 +1,13 @@
 # Custom Template for LifterLMS #
-**Contributors:** [pratikchaskar](https://profiles.wordpress.org/pratikchaskar/), [wpcrafter](https://profiles.wordpress.org/wpcrafter/)  
-**Donate link:** https://www.paypal.me/BrainstormForce  
-**Tags:** lifterlms, course, page-buider, beaver builder, elementor, visual composer  
-**Requires at least:** 4.4  
-**Requires PHP:** 5.3  
-**Tested up to:** 6.5  
-**Stable tag:** 1.0.5  
-**License:** GPLv2 or later  
-**License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
+**Contributors:** [pratikchaskar](https://profiles.wordpress.org/pratikchaskar/), [wpcrafter](https://profiles.wordpress.org/wpcrafter/)
+**Donate link:** https://www.paypal.me/BrainstormForce
+**Tags:** lifterlms, course, page-builder, beaver builder, elementor, visual composer
+**Requires at least:** 4.4
+**Requires PHP:** 5.3
+**Tested up to:** 6.6
+**Stable tag:** 1.0.5
+**License:** GPLv2 or later
+**License URI:** https://www.gnu.org/licenses/gpl-2.0.html
 
 The selected custom template will replace default LifterLMS course template for non-enrolled students.
 
