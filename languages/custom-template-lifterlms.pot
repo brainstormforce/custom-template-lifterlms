@@ -1,4 +1,4 @@
-# Copyright (C) 2018 brainstormforce
+# Copyright (C) 2018 pratikchaskar
 # This file is distributed under the same license as the Custom Template for LifterLMS package.
 msgid ""
 msgstr ""
@@ -151,7 +151,7 @@ msgid "Custom Template for LifterLMS"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/brainstormforce/custom-template-lifterlms"
+msgid "https://github.com/pratikchaskar/custom-template-lifterlms"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -162,11 +162,11 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "brainstormforce"
+msgid "pratikchaskar"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.brainstormforce.com/"
+msgid "https://www.pratikchaskar.com/"
 msgstr ""
 
 #: admin/class-ctllms-admin.php:227

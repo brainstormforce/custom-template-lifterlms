@@ -1,5 +1,5 @@
 {
-  "name": "brainstormforce/custom-template-lifterlms",
+  "name": "pratikchaskar/custom-template-lifterlms",
   "description": "Custom Template Lifterlms in Astra Theme",
   "require-dev": {
       "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",

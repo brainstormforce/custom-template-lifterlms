@@ -2,7 +2,7 @@
   "name": "custom-template-lifterlms",
   "version": "1.0.2",
   "main": "Gruntfile.js",
-  "author": "Brainstorm Force",
+  "author": "Pratik Chaskar",
   "devDependencies": {
     "cryptiles": "4.1.3",
     "deep-extend": ">=0.5.1",

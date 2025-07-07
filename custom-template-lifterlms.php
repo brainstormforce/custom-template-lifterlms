@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     Custom Template for LifterLMS
- * Plugin URI:      https://github.com/brainstormforce/custom-template-lifterlms
+ * Plugin URI:      https://github.com/pratikchaskar/custom-template-lifterlms
  * Description:     This plugin will help you replace default LifterLMS course template for non-enrolled students with a custom template. You can design the custom template with any page builder of your choice.
  * Author:          Pratik Chaskar
  * Author URI:      https://pratikchaskar.com/
