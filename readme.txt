@@ -1,6 +1,5 @@
 === Custom Template for LifterLMS ===
 Contributors: pratikchaskar
-Donate link: https://www.paypal.me/BrainstormForce
 Tags: lifterlms, course, page-buider, beaver builder, elementor, visual composer
 Requires at least: 4.4
 Requires PHP: 5.3
