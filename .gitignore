@@ -11,3 +11,4 @@ node_modules/
 # Exclude composer's directories
 vendor/
 .claude/settings.local.json
+config.bat
